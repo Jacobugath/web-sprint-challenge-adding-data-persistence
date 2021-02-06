@@ -6,13 +6,13 @@ const get = () =>{
 
 const findById = id =>{
     return db('projects')
-    .where('id', id)
+    .where('project_id', id)
     .first()
 }
 
 const update = (changes, id) => {
     return db('projects')
-      .where('id', id)
+      .where('project_id', id)
       .update(changes)
       .then(a =>{
           return findById(id);

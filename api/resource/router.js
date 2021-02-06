@@ -5,8 +5,8 @@ const Resources = require('./model');
 const router = express.Router();
 
 
-router.get('/api/resources', (req, res) => {
-    Resources.find()
+router.get('/', (req, res) => {
+    Resources.get()
       .then(resource => {
         res.json(resource);
       })
@@ -15,7 +15,7 @@ router.get('/api/resources', (req, res) => {
       });
   });
 
-  router.post('/api/resources', (req, res) => {
+  router.post('/', (req, res) => {
     const resourceData = req.body;
   
     Resources.add(resourceData)
@@ -26,3 +26,5 @@ router.get('/api/resources', (req, res) => {
         res.status(500).json({ message: 'Failed to create new resource' });
       });
   });
+
+  module.exports = router;
